@@ -4,10 +4,10 @@ namespace webapiDotNetTrainingGround.Controllers;
 
 [ApiController]
 [Route("/api/[controller]")]
-public class DeveloperController : ControllerBase
+public class DevelopersController : ControllerBase
 {
-    private List<Developer> _db = new();
+    private List<Developer> _db = [];
 
     [HttpGet]
-    public List<Developer> GetAllDevs() => _db;
+    public List<Developer> GetAllDevelopers() => _db;
 }
