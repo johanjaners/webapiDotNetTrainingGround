@@ -20,12 +20,18 @@ public class DevelopersController : ControllerBase
     public Developer? GetDeveloperById(int id) => _db.Developers.Find(d => d.Id == id);
 
     [HttpPost]
-    public IActionResult CreateNewDeveloper(Developer developerToAdd)
+    public IActionResult CreateNewDeveloper(CreateDeveloperRequest request)
     {
         var nextId = _db.Developers.Count + 1;
-        developerToAdd.Id = nextId;
-        _db.Developers.Add(developerToAdd);
+        var newDev = new Developer()
+        {
+            Id = nextId,
+            Name = request.Name,
+            Email = request.Email,
+        };
 
-        return CreatedAtAction(nameof(GetDeveloperById), new { id = nextId }, developerToAdd);
+        _db.Developers.Add(newDev);
+
+        return CreatedAtAction(nameof(GetDeveloperById), new { id = nextId }, newDev);
     }
 }
