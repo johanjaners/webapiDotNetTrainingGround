@@ -6,7 +6,7 @@ namespace webapiDotNetTrainingGround.Controllers;
 [Route("/api/[controller]")]
 public class DevelopersController : ControllerBase
 {
-    private List<Developer> _db = [];
+    private static readonly List<Developer> _db = [];
 
     [HttpGet]
     public List<Developer> GetAllDevelopers() => _db;
