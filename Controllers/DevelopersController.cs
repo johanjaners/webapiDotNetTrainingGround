@@ -7,4 +7,10 @@ namespace webapiDotNetTrainingGround.Controllers;
 class DeveloperController : ControllerBase
 {
     private List<Developer> _db = new();
+
+    [HttpGet]
+    public List<Developer> GetAllDevs()
+    {
+        return _db;
+    }
 }
