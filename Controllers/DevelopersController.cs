@@ -11,5 +11,6 @@ public class DevelopersController : ControllerBase
     [HttpGet]
     public List<Developer> GetAllDevelopers() => _db;
 
+    [HttpGet]
     public Developer? GetDeveloperById(int id) => _db.Find(d => d.Id == id);
 }
