@@ -6,11 +6,11 @@ namespace webapiDotNetTrainingGround.Controllers;
 [Route("/api/[controller]")]
 public class DevelopersController : ControllerBase
 {
-    private readonly Db _db;
+    private Db _db;
 
-    public DevelopersController()
+    public DevelopersController(Db db)
     {
-        _db = new Db();
+        _db = db;
     }
 
     [HttpGet]
