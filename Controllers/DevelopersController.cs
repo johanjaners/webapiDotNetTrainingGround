@@ -10,4 +10,6 @@ public class DevelopersController : ControllerBase
 
     [HttpGet]
     public List<Developer> GetAllDevelopers() => _db;
+
+    public Developer? GetDeveloperById(int id) => _db.Find(d => d.Id == id);
 }
